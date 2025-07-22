@@ -4,10 +4,10 @@ export default function FormularioSugestao({ aoEnviar }) {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (nome.trim() && descricao.trim()) {
-      aoEnviar({ nome, descricao, data_envio: new Date().toISOString() });
+      await aoEnviar({ nome, descricao });
       setNome("");
       setDescricao("");
     }
