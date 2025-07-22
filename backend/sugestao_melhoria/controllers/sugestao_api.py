@@ -21,7 +21,7 @@ class SugestaoController(http.Controller):
         )
     
     @http.route('/api/sugestoes', type='http', auth='public', methods=['POST'], cors='*', csrf=False)
-    def criar_sugestao(self, **kwargs):
+    def criar_sugestao(self):
         try:
             data = json.loads(request.httprequest.data)
             sugestao = request.env['sugestao.melhoria'].sudo().create({
